@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: curated
+    database: dw
+    schema: curated
+    tables:
+      - name: transactions
+      - name: naf_details

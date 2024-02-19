@@ -1,0 +1,18 @@
+{
+    "API_KEY": "",
+    "API_SECRET": "",
+
+    "DATABASE_CONFIG": {
+        "database": "dw",
+        "host": "172.19.0.x",
+        "password": "dw",
+        "port": "5432",
+        "user": "dw"
+    },
+
+    "MINIO_ACCESS_KEY": "",
+    "MINIO_ENDPOINT_URL": "http://172.19.0.x:9000",
+    "MINIO_SECRET_KEY": "",
+
+    "SOURCE_BUCKET_NAME": "landing-area"
+}

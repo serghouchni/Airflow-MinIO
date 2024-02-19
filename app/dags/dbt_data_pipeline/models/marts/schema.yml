@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: spending_by_naf_code
+    description: "A summary of spending by NAF code."
+    config:
+      materialized: incremental
+      schema: normalized
+    columns:
+      - name: date
+        description: "The date of the transaction."
+        tests:
+          - not_null
+
+      - name: naf_code
+        description: "The NAF code associated with the transaction."
+        tests:
+          - not_null
+          - naf_code:
+              severity: error
+
+      - name: spent
+        description: "The net amount spent, accounting for captures and refunds."
+        tests:
+          - not_null

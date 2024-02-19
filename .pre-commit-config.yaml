@@ -1,0 +1,19 @@
+repos:
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 2.3.5  # Specify the version of SQLFluff
+    hooks:
+      - id: sqlfluff-lint
+        name: SQLFluff
+        entry: sqlfluff lint
+        language: python
+        types: [sql]
+      - id: sqlfluff-fix
+        name: SQLFluff Fix
+        entry: sqlfluff fix
+        language: python
+        types: [sql]
+  - repo: https://github.com/psf/black
+    rev: 23.12.1
+    hooks:
+      - id: black
+        language_version: python3

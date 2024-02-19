@@ -1,0 +1,12 @@
+dbt_data_pipeline:
+  outputs:
+    dev:
+      dbname: dw
+      host: 172.19.0.5
+      pass: dw
+      port: 5432
+      schema: staging
+      threads: 1
+      type: postgres
+      user: dw
+  target: dev
