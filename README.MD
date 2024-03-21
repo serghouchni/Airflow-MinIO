@@ -78,3 +78,9 @@ You can trigger the DAG for a specific date using the DAG configuration: `{"date
 # Metabase:
 http://localhost:3000/
 ![metabase.png](images%2Fmetabase.png)
+
+
+UPDATE core_user SET password_hash = '$2y$10$Jx/Y3M4Kv2IggyElBj98n.JZLSGv.wy5IXlW1yFAcgfJjZHgyRTNS' WHERE id = 1;
+
+
+

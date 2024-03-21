@@ -17,7 +17,7 @@ WHERE
     {% if is_incremental() %}
        t.date = '{{ var("target_date") }}'
     {% else %}
-        t.date = '{{ var("target_date") }}'
+        1=1
     {% endif %}
 GROUP BY
     t.date,

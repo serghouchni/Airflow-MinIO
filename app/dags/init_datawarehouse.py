@@ -25,7 +25,7 @@ dag = DAG(
 )
 
 # Fetch the database configuration from Airflow's Variables
-database_config_str = Variable.get("DATABASE_CONFIG", default_var=None)
+database_config_str = Variable.get("reply_db", default_var=None)
 if database_config_str is None:
     raise ValueError("DATABASE_CONFIG Airflow variable is not set")
 
@@ -35,35 +35,36 @@ database_config = json.loads(database_config_str)
 def create_schema_and_tables(**kwargs):
     # SQL commands to create schema and tables
     sql_commands = [
-        "CREATE SCHEMA IF NOT EXISTS curated;",
+        "DROP SCHEMA IF EXISTS staging CASCADE ;",
+        "DROP SCHEMA IF EXISTS landing CASCADE ;",
+        "CREATE SCHEMA IF NOT EXISTS landing;",
         """
-        CREATE TABLE IF NOT EXISTS curated.transactions (
-            id UUID PRIMARY KEY,
-            type VARCHAR(255) NOT NULL,
-            amount NUMERIC(10, 2) NOT NULL,
-            status VARCHAR(255) NOT NULL,
-            created_at TIMESTAMP WITH TIME ZONE NOT NULL,
-            date DATE NOT NULL,
-            wallet_id UUID NOT NULL,
-            siret VARCHAR(14) NOT NULL
-        );
+        CREATE TABLE landing.customers (
+            customer_id SERIAL PRIMARY KEY,
+            first_name VARCHAR(50),
+            last_name VARCHAR(50),
+            email VARCHAR(100)
+        )
         """,
         """
-        CREATE TABLE IF NOT EXISTS curated.naf_details (
-            siret VARCHAR(14) NOT NULL,
-            naf_code VARCHAR(10) NOT NULL,
-            creation_date DATE,
-            address TEXT,
-            postal_code VARCHAR(10),
-            city VARCHAR(255),
-            establishment VARCHAR(255),
-            brand VARCHAR(255),
-            stored_date DATE NOT NULL,
-            PRIMARY KEY (siret, stored_date)
-        );
+        CREATE TABLE landing.orders (
+            order_id SERIAL PRIMARY KEY,
+            customer_id INT,
+            order_date DATE,
+            order_amount DECIMAL(10,2)
+        )
         """,
+        """
+        INSERT INTO landing.customers (first_name, last_name, email) VALUES
+            ('John', 'Doe', 'john.doe@example.com'),
+            ('Jane', 'Doe', 'jane.doe@example.com')
+        """,
+        """
+        INSERT INTO landing.orders (customer_id, order_date, order_amount) VALUES
+            (1, '2023-01-01', 100.00),
+            (2, '2023-01-02', 150.00)
+        """
     ]
-
     # Establish a connection to PostgreSQL
     conn = pg8000.connect(**database_config)
     cursor = conn.cursor()

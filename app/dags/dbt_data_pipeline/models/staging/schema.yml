@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Staging model for customer data"
+    columns:
+      - name: customer_id
+        description: "Unique identifier for the customer"
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "First name of the customer"
+      - name: last_name
+        description: "Last name of the customer"
+      - name: email
+        description: "Email address of the customer"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: "Staging model for orders data"
+    columns:
+      - name: order_id
+        description: "Unique identifier for the order"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Identifier for the customer who placed the order"
+      - name: order_date
+        description: "Date when the order was placed"
+      - name: order_amount
+        description: "Total amount of the order"

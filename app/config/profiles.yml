@@ -2,7 +2,7 @@ dbt_data_pipeline:
   outputs:
     dev:
       dbname: dw
-      host: 172.19.0.5
+      host: 172.19.0.4
       pass: dw
       port: 5432
       schema: staging

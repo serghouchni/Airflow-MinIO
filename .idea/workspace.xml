@@ -5,25 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a73f0f0-6729-4b3e-98d1-45ff0152599f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.dw_postgres" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Airflow-MinIO.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api_client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/insee.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/read_json.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/read_json_minio.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/read_set.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sirene_api_fetcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temp.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transaction_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/landing/raw_customers.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/landing/raw_orders.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/landing/sources.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/raw_vault/hubs/hub_customers.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/raw_vault/hubs/hub_orders.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/raw_vault/links/link_customer_orders.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/raw_vault/satellites/sat_customer_details.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/raw_vault/satellites/sat_orders_details.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/staging/schema.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/staging/stg_customers.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/staging/stg_orders.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/packages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/profiles.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/profiles.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/dbt_project.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/dbt_project.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/marts/spending_by_naf_code.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/dags/dbt_data_pipeline/models/marts/spending_by_naf_code.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dags/init_datawarehouse.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/dags/init_datawarehouse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.sh" beforeDir="false" afterPath="$PROJECT_DIR$/utils.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,39 +43,69 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2cGGhXcxdkiz9LMh7DqfVxffOUY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.code 3.executor": "Run",
-    "Python.naf-handler (1).executor": "Run",
-    "Python.read_json.executor": "Run",
-    "Python.read_json_minio.executor": "Run",
-    "Python.read_set.executor": "Run",
-    "Python.sirene_api_fetcher.executor": "Run",
-    "Python.transaction_handler.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/m.charhrouchni/PycharmProjects/swile_data_pipeline"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.code 3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_s.executor&quot;: &quot;Run&quot;,
+    &quot;Python.naf-handler (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.read_json.executor&quot;: &quot;Run&quot;,
+    &quot;Python.read_json_minio.executor&quot;: &quot;Run&quot;,
+    &quot;Python.read_set.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sirene_api_fetcher.executor&quot;: &quot;Run&quot;,
+    &quot;Python.transaction_handler.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/m.charhrouchni/PycharmProjects/empowered-data-platform&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\app\dags\dbt_data_pipeline\models\vault\hubs" />
+      <recent name="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\app\dags\dbt_data_pipeline\models\staging" />
+      <recent name="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\app\dags\dbt_data_pipeline\models" />
       <recent name="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO" />
+      <recent name="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\app\dags\dbt_data_pipeline\models\raw_stage" />
+      <recent name="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\images" />
+      <recent name="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\app\dags\dbt_data_pipeline\tests\generic" />
+      <recent name="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\app\config" />
+      <recent name="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\app\dags\handler" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.read_set">
+  <component name="RunManager" selected="Python.get_s">
+    <configuration name="get_s" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Airflow-MinIO" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/get_s.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="naf_handler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Airflow-MinIO" />
       <option name="ENV_FILES" value="" />
@@ -89,7 +119,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\naf_handler.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\app\dags\handler\naf_handler.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -142,7 +172,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="read_set" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="read_set_handler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Airflow-MinIO" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -155,7 +185,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/read_set.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\app\dags\handler\read_set_handler.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,7 +207,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/transaction_handler.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\m.charhrouchni\PycharmProjects\Airflow-MinIO\app\dags\handler\transaction_handler.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -188,11 +218,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.read_set" />
+        <item itemvalue="Python.get_s" />
+        <item itemvalue="Python.read_set_handler" />
         <item itemvalue="Python.transaction_handler" />
         <item itemvalue="Python.naf_handler" />
         <item itemvalue="Python.read_json_minio" />
-        <item itemvalue="Python.naf_handler" />
       </list>
     </recent_temporary>
   </component>
